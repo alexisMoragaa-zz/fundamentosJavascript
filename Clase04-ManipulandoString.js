@@ -36,7 +36,7 @@ function platzom(str){
   }
 
 
-//regla 4
+//regla 4 si la palabra es un palindromo no aplican las reglas anteriores y se pone una mayuscula,una minuscula
 const reverse = (str) => str.split('').reverse().join('')
 //transformamos nuestra cadena  en un array,añadiendo un caracter a caa posicion y luego recorremos el array en forma inversa, luego unimos nuevamente la cadena
 function minMay(str){
@@ -70,7 +70,7 @@ console.log(platzom(`sometemos`))
 ? -> este es un operador ternario, y sirve para evaluar una condicion y ejecutar una u otradependiendo del resultado (basicamente es un if)
 ! -> operador diferente, se usa para indicar que algo es diferente de otra cosa, en el ejemplo usado capitalize = !capitalize estamos diciendo que capitalize tome el valor diferente de capitalize
     con lo cual si capitalize esta en true tomara false, y si esta en false tomara true
-    
+
 *Funciones usadas*
 
 toLoweCase() -> transforma toda la cadena a minusculas
