@@ -1,4 +1,4 @@
-# fundamentosJavascript
+# Curso Fundamentos de Javascript (Platzi)
 
 Curso Básico con los fundamentos de Javascript desde cero
 
