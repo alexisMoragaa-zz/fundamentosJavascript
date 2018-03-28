@@ -1,0 +1,67 @@
+<script>/*Funcion Bind*/</script>
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+  <button type="button" name="button" id="boton"></button>
+  </body>
+</html>
+
+<script>
+class Togable {//creamos la clase Togeable
+  constructor(el) {//añadimos el constructor de la clase
+    this.el = el//asignamos el valor de el
+    this.el.innerHTML = 'Off'//establecemos un texto predeterminado
+    this.activate = false//establecemos la propuedad activate como false
+    this.el.addEventListener('click', this.onclick.bind(this))//ponemos el elemento a la eschucha del evento click
+    //como primer parametro le pasamos el evento que espera, y como segundo parametro un callback que ejecuta una funcion
+    //cuando el evento sea disparado. Usamos el bind, ya que la funcion addEventListener cambia el contexto del this
+  }
+
+  onclick(){//establecemos la funcion onClick
+    //cambiar el estado ed on a of y viceversa
+    this.activate = !this.activate//asignamos a activate el valor contrario al qe tenia
+    this.toggleText()//llamamos a la funcion toggleText
+  }
+
+  toggleText(){//establecemos la funcion toggle text
+    //cambiar el texto
+    this.el.innerHTML= this.activate ? 'On' : 'Off'//usamos el operador ternario para cambiar el valor de nuestro objeto
+    //dependiendo si el valor de activate es true, o false.
+  }
+}
+
+const button = document.getElementById('boton')
+//asignamos a la constante boton el valor del elemento html que seleccionamos mediante su id usando getElementById
+
+const miBoton  = new Togable(button)
+//creamos una nueva instancia de la clase Togeable usando el boton
+</script>
+
+
+<script>
+  /*Otro uso de bind es guardar parametros */
+
+function saludar(nombre,apellido){//creamos una funcion llamada saludar
+  //esta funcion recive dos parametros, un nombre y un apellido, para rfetornar un saludo
+  console.log(`Hola ${nombre} ${apellido}`)//retornamos el saludo incluyendo nombre y apellido
+}
+
+saludar("alexis", "moraga")//llamamos a la funcion
+
+const saludarAlexis = saludar.bind(null,"alexis")
+//creamos una variable llamada saludarAlexis y le asignamos como valor la funcion saludar
+//pero usamos la funcion bind, como primer parametro le pasamos null, ya que para este caso el contexto no es necesario
+//y como segundo parametro le pasamos un parametro a recordar
+saludarAlexis("moraga")
+//llamamos  ala funcion saludarAlexis y solo pasamos como parametro el apllido, ya que la funcion recuerda el primer parametro mediante el Bind
+
+</script>
+
+/*
+-> bind() esta funcion trae al scope local de una funcion el contexto externo del this, y nos permite usar ese contexto dentro de la funcion}
+*/
