@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <h1 id="timer">Hola</h1>
+
+    <script>
+      const timer = document.getElementById('timer')
+      let segundos = 0
+  /*    setInterval(()=>{
+        segundos ++
+        timer.innerHTML=`han pasado ${tiempo} segundos`
+      },1000)*/
+
+//Reto de la clase usar plural solo cuando corresponda
+setInterval(()=>{
+  segundos++
+  timer.innerHTML= segundos <= 1 ? `ha pasado ${segundos} segundo` : `han pasado ${segundos} segundos`
+},1000)
+
+
+    </script>
+  </body>
+</html>
+
+
+<!--  Set intervar ejecuta una funcion cada x cantidad de tiempo-->
