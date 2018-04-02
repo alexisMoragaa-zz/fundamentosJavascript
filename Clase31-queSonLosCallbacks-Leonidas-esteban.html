@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Ejemplo de callbacks</title>
+  </head>
+  <body>
+    <h1>Ahora estoy <span id="accion">Durmiendo...</span></h1>
+
+
+    <script>
+      const DESPERTAR = 3000//declaramos conatantes con un valor en milisegundos
+      const DUCHA = 2000//declaramos conatantes con un valor en milisegundos
+      const VESTIRSE =2000//declaramos conatantes con un valor en milisegundos
+      const DESAYUNAR = 3000//declaramos conatantes con un valor en milisegundos
+      const PLATZI = 5000//declaramos conatantes con un valor en milisegundos
+      const $agenda = document.getElementById('accion')//tomamos el elemento del dom y lo guardamos en la constante $agenda
+
+      setTimeout(()=>{//usamos un setTimeout para cambiar el valor del elemento del dom asignado a la constante $agenda
+        $agenda.innerHTML=`Despertando...`
+
+        setTimeout(()=>{//una vez ejecutado el primer timeout encadenamos un segundo para cambiar nuevamente el elemento del dom
+          $agenda.innerHTML=`Duchandome...`
+          setTimeout(()=>{//una vez ejecutado elsegundo encadenamos un tercero
+            $agenda.innerHTML=`Vistiendome...`
+            setTimeout(()=>{//y encadenamos un cuarto
+              $agenda.innerHTML=`Desayunando...`
+              setTimeout(()=>{//finalmente encadenamos un quinto timeout
+                $agenda.innerHTML=`Estudiando en Platzi...`
+              },PLATZI)
+            },DESAYUNAR)
+          },VESTIRSE)
+        },DUCHA)
+      },DESPERTAR)
+    </script>
+  </body>
+</html>
+
+<!--Callback hell
+
+que es esto.
+el callback hell se produce cuando comenzamos a anidar callbacks tras callcacks tras callcacks, como vimos en el ejemplo
+
+que es un callback
+un callbac es el llamado a una funcion desde otra funcion, esto es un concepto teorico, y lo usamos conatantemente
+cuando pasamos funciones como parametros, o llamamos a otras funciones desde nuestras funciones
+
+ -->
