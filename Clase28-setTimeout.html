@@ -10,7 +10,6 @@
 
 <div class="container text-center">
   <h1 class="mt-5">Uso de setTimeOut</h1>
-  <p class="mt-5">5 segundos pasados la carga de la pagina se ejecutara un setTimeout que abrira una ventana modal.</p>
   <p class="mt-5">Luego pasaran 5 segundos mas y mediante otro setTimeout la ventana modal se cerrara nuevamente</p>
 </div>
 
@@ -22,7 +21,7 @@
 
       </div>
       <div class="modal-body">
-        Esta modal se cerrara 5 segundos mediante un setTimeout en javascript
+        Esta modal se cerrara en  5 segundos mediante un setTimeout en javascript
       </div>
 
     </div>
@@ -35,7 +34,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script type="text/javascript">
 
-    setTimeout(()=>$("#exampleModal").modal(''),5000)
+      $("#exampleModal").modal('toggle')
     setTimeout(()=>$("#exampleModal").modal('toggle'),5000)
 
 
