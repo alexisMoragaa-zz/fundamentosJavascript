@@ -1,0 +1,86 @@
+<!-- Continuamos con el ejemplo anterior de un itineraria diario
+en esta ocacion resolvimos el problema usando promesas para evitar el callbackHell -->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Eliminando CallBackHell</title>
+  </head>
+  <body>
+    <h1 id="accion"> Estoy Despertando</h1>
+    <button type="button" name="button" id="si" class="btn">Si</button>
+    <button type="button" name="button" id="no" class="btn">No</button>
+
+<script>
+  const DESPERTAR = 3000, DUCHA = 2000, VESTIRSE =2000, DESAYUNAR = 3000, PLATZI = 5000
+  const $agenda = document.getElementById('accion')//asignamos constantes a los elementos del dom
+  const $btnSi = document.getElementById('si')//asignamos constantes a los elementos del dom
+  const $btnNo = document.getElementById('no')//asignamos constantes a los elementos del dom
+
+  btnHide()//ocultamos los botones
+
+  function despertar(){//creamos una funcion llamada despertar
+    return new Promise((resolve, reject)=>setTimeout(()=>resolve('Ahora me voy a  duchar...'),DESPERTAR))
+    //esta funcion nos retorna una promesa, la cual ejecuta un setTimeout y nos entrega como resolve un mensaje
+  }
+
+  function ducha(message){//creamos una funcion llamada ducha
+
+    return new Promise((resolve, reject)=>{//retornamos una promesa
+      $agenda.innerHTML = `${message} hay agua caliente?`//cambiamos el valor del elemento del dom
+      btnShow()//mostramos los botones
+
+      $btnSi.addEventListener('click', ()=>{//nos ponemos a la escucha del evento click en el boton si
+        btnHide()//ocultamos los botones
+        resolve(`Ahora me estoy vistiendo`)
+        //finalizamos la promesa con un resolve
+      })
+
+      $btnNo.addEventListener('click', ()=>{//nos ponemos a la escucha del evento click en el boton no
+        btnHide()//ocultamos los botones
+        reject(`Rayos, no hay agua caliente`)
+        //finalizamos la promesa con un reject
+      })
+
+    })
+  }
+
+  function vestirme(message){ //creamos una funcion que retorna una promesa
+    $agenda.innerHTML = message//cambiamos el valor del elemento del dom
+    return new Promise((resolve, reject)=>setTimeout(()=>resolve(`Ahora estoy Desayunando...`),VESTIRSE))
+  }
+
+  function desayunar(message){ //creamos una funcion que retorna una promesa
+    $agenda.innerHTML = message//cambiamos el valor del elemento del dom
+    return new Promise((resolve, reject)=>setTimeout(()=>resolve(`Ahora estoy estudiando en platzi`),DESAYUNAR))
+  }
+
+  function platzi(message){ //creamos una funcion que retorna una promesa
+    $agenda.innerHTML = message//cambiamos el valor del elemento del dom
+    return new Promise((resolve, reject)=>setTimeout(()=>resolve(`El curso de Javascript es el mejor`)  ,PLATZI))
+  }
+
+  function _handlerError(err){//creamos una funcion para manejar los errores
+    $agenda.style.color=`red`//ponemos el texto del error en rojo
+    $agenda.innerHTML= err//ponemos el error en el elemento del dom
+  }
+
+  despertar()//llamamos a la funcion despertar
+  .then(ducha)//cuando la promesa de la funcion despertar se ejecute llamamos a la funcion ducha
+  .then(vestirme)//cuando la promesa de la funcion ducha se ejecute con exito llamamos a la funcion vestirme
+  .then(desayunar)//cuando la promesa de la funcion vestirme se ejecute con exito llamamos a la funcion desayunar
+  .then(platzi)//cuando la promesa de la funcion desayunar se ejecute con exito llamamos a la funcion platzi
+  .catch(_handlerError)//cuando ocurra un error en alguna de las promesas llamamos a la funcion _handlerError y le enviamos el error
+
+  function btnShow() {//creamos una funcion para ocultar los botones
+    $btnSi.setAttribute("style","visibility:visible")
+    $btnNo.setAttribute("style","visibility:visible")
+  }
+
+  function btnHide(){//creamos una funcion para mostrar los botones
+    $btnSi.setAttribute("style","visibility:hidden")
+    $btnNo.setAttribute("style","visibility:hidden")
+  }
+</script>
+</body>
+</html>
