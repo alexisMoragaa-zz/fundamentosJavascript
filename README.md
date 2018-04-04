@@ -1,6 +1,6 @@
 # Curso Fundamentos de Javascript (Platzi)
 
-Curso Básico con los fundamentos de Javascript desde cero
+##Curso Básico con los fundamentos de Javascript desde cero
 
 # En este curso veremos
 
@@ -23,4 +23,4 @@ Curso Básico con los fundamentos de Javascript desde cero
 + Implementacion de Librerias Externas
 
 
-Este curso es impartido por @sachalifs en @platzi
+###Este curso es impartido por @sachalifs en @platzi
