@@ -8,7 +8,8 @@ siguiente
 function fibonacci(){//creamos la funcion
   let a = 0, b = 1; //establecemos las variables con los numeros iniciales de fibonacci
   return {//retornamos un objeto con una propiedad next
-    next: function(){
+    next: function(reset){//le pasamos como parametro reset a la funcion next
+      if(reset) a = 0, b = 1//si reset es true restablecemos los valores
       let f = a //guardamos el valor de a en una variable auxiliar para mantenerlo
 
       a = b //asignamos el valor de la variable b a la variable a
@@ -61,7 +62,8 @@ function fibonacci(){//creamos la funcion
 }
 
 const fibo = fibonacci()//asignamos a la constante fibo el valor de la funcion fibonacci
-fibo.next().value
+fibo.next().value//llamamos la funcion next de fibo, y acedemos a la propiedad valuedel objeto que retorna
+fibo.next(true)//le pasamos true al parametro reset de la funcion next para resetear el closure
 
 /*================================ iterando los primeros 20 numeros==========================*/
 const fibo2 = {}//creamos un objeto vacio
