@@ -22,5 +22,11 @@
 + Creacion de un juego en Html
 + Implementacion de Librerias Externas
 
+## Paquete npm
+
+- [Repositorio GitHub](https://github.com/alexisMoragaa/pruebaCreacionPaqueteNpm)
+
+- [Repositorio npm](https://github.com/alexisMoragaa/pruebaCreacionPaqueteNpm)
+
 
 ### Este curso es impartido por @sachalifs en @platzi
