@@ -64,7 +64,7 @@ las versiones se miden en un numero con entero con dos decimales ej : 1.0.0
 
 => terminado esto añadimos dos archivos a nuestro paquete
 -> el archivo con la licencia
-->el archivo README.md
+->el archivo README.
 
 
 */
